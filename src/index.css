@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Developer Cyber Grids & Glows */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+}
+
+.dark .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(20, 184, 166, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 184, 166, 0.07) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+}
+
+.dark .bg-dot-pattern {
+  background-image: radial-gradient(rgba(20, 184, 166, 0.12) 1px, transparent 1px);
+}
+
+.glow-card {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to bottom right, rgba(20, 184, 166, 0.3), transparent 60%, rgba(6, 182, 212, 0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* ============================================================================
+ * CK-CONTENT / RICH TEXT ARTICLE RENDERER (dangerouslySetInnerHTML styling)
+ * ========================================================================== */
+
+.ck-content {
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.ck-content h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: inherit;
+}
+
+.ck-content h2 {
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  color: inherit;
+}
+
+.dark .ck-content h2 {
+  border-bottom-color: rgba(39, 39, 42, 0.8);
+}
+
+.ck-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+.ck-content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.ck-content p {
+  margin-top: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.ck-content strong, .ck-content b {
+  font-weight: 700;
+  color: inherit;
+}
+
+.ck-content em, .ck-content i {
+  font-style: italic;
+}
+
+.ck-content a {
+  color: #0d9488;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.ck-content a:hover {
+  color: #0f766e;
+}
+
+.dark .ck-content a {
+  color: #14b8a6;
+}
+
+.dark .ck-content a:hover {
+  color: #2dd4bf;
+}
+
+.ck-content blockquote {
+  border-left: 4px solid #0d9488;
+  background: rgba(240, 253, 250, 0.7);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  border-radius: 0 14px 14px 0;
+  color: #0f766e;
+}
+
+.dark .ck-content blockquote {
+  background: rgba(19, 78, 74, 0.25);
+  border-left-color: #14b8a6;
+  color: #99f6e4;
+}
+
+.ck-content pre {
+  background: #0f172a !important;
+  color: #f1f5f9 !important;
+  padding: 1.25rem 1.5rem !important;
+  border-radius: 16px !important;
+  margin: 1.5rem 0 !important;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 13.5px !important;
+  line-height: 1.65;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dark .ck-content pre {
+  background: #09090b !important;
+  border-color: #27272a;
+}
+
+.ck-content code {
+  background: #f1f5f9;
+  color: #be185d;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88em;
+  border: 1px solid #e2e8f0;
+}
+
+.dark .ck-content code {
+  background: #18181b;
+  color: #f472b6;
+  border-color: #27272a;
+}
+
+.ck-content pre code {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border: none !important;
+  font-size: inherit !important;
+}
+
+.ck-content ul {
+  list-style-type: disc;
+  padding-left: 1.75rem;
+  margin: 1rem 0;
+}
+
+.ck-content ol {
+  list-style-type: decimal;
+  padding-left: 1.75rem;
+  margin: 1rem 0;
+}
+
+.ck-content li {
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.ck-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.dark .ck-content table {
+  border-color: #27272a;
+}
+
+.ck-content th {
+  background: #f8fafc;
+  font-weight: 700;
+  padding: 10px 14px;
+  text-align: left;
+  border: 1px solid #e2e8f0;
+}
+
+.dark .ck-content th {
+  background: #18181b;
+  border-color: #27272a;
+}
+
+.ck-content td {
+  padding: 10px 14px;
+  border: 1px solid #e2e8f0;
+}
+
+.dark .ck-content td {
+  border-color: #27272a;
+}
+
+.ck-content hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 2rem 0;
+}
+
+.dark .ck-content hr {
+  border-top-color: #27272a;
+}
+
+.ck-content img {
+  border-radius: 16px;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
